@@ -1,1 +1,5 @@
 secrets_alex.txt
+.env
+.env.example
+env
+
