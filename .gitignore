@@ -2,4 +2,6 @@ secrets_alex.txt
 .env
 .env.example
 env
+README_SECURITY.md
+troni2.code-workspace
 
