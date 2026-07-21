@@ -1,7 +1,13 @@
-secrets_alex.txt
 .env
 .env.example
 env
+secrets_alex.txt
 README_SECURITY.md
 troni2.code-workspace
-
+experiments/
+graphics/
+*.pyc
+__pycache__/
+venv/
+.DS_Store
+*.sqlite3

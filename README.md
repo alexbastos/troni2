@@ -34,6 +34,28 @@ Define mecanismos de **segurança contra prompt injection** e **validação de s
 
 ---
 
+## 🛡️ Melhorias de Segurança no RAG
+
+Para garantir a integridade do sistema e proteger informações sensíveis durante a execução do pipeline de RAG, foram implementadas as seguintes camadas de segurança:
+
+1. **Filtro de Prompt Injection (`PromptInjectionFilter`)**:
+   - Analisa e sanitiza as entradas dos usuários antes do envio para o modelo.
+   - Detecta tentativas de *jailbreak*, desvio de comportamento ou injeção de instruções maliciosas que tentem sobrescrever o sistema de prompt.
+
+2. **Validação e Sanitização de Saída (`OutputValidator`)**:
+   - Inspeciona as respostas geradas pela LLM antes de enviá-las ao usuário.
+   - Previne o vazamento acidental de chaves de API, credenciais ou dados sensíveis do ambiente.
+
+3. **Pipeline RAG Seguro (`SecureLLMPipeline`)**:
+   - Integração segura entre o contexto recuperado da base de vetores (Qdrant) e a LLM.
+   - Delimitação clara do contexto de recuperação para evitar contaminação do prompt ou *prompt poisoning*.
+
+4. **Proteção de Credenciais e Arquivos Sensíveis**:
+   - Configuração estrita de salvaguardas no repositório (`.gitignore`) para prevenir o versionamento e exposição de arquivos `.env`, chaves de acesso, bancos de dados locais (`*.sqlite3`) e relatórios de segurança internos.
+
+---
+
+
 ### `views.py`
 Define a **API principal** para interação com o chatbot (`/api/chat/rag`):
 - Recebe `user_query` e `modo` (puro ou RAG).  
